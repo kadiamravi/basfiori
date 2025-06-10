@@ -1,0 +1,109 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "com.test.ravifirstsapui5",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.17.6",
+      "toolsId": "cc4d8947-13d6-4242-81b0-863509dbd3e8"
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.136.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.test.ravifirstsapui5.i18n.i18n"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "com.test.ravifirstsapui5.view",
+        "async": true,
+        "viewPath": "com.test.ravifirstsapui5.view"
+      },
+      "routes": [
+        {
+          "name": "Routemyfirstview1",
+          "pattern": "",
+          "target": [
+            "Targetmyfirstview1"
+          ]
+        },
+        {
+          "name": "Routemysecondview1",
+          "pattern": "view2",
+          "target": [
+            "Targetmysecondview1"
+          ]
+        }
+      ],
+      "targets": {
+        "Targetmyfirstview1": {
+          "id": "myfirstview1",
+          "name": "myfirstview1"
+        },
+        "Targetmysecondview1": {
+          "id": "mysecondview1",
+          "name": "mysecondview1"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "com.test.ravifirstsapui5.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}

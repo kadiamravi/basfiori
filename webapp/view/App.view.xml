@@ -1,0 +1,8 @@
+<mvc:View controllerName="com.test.ravifirstsapui5.controller.App"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <!--app contrainer-->
+    <App id="app">
+    </App>
+</mvc:View>
