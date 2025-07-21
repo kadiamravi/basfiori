@@ -28,4 +28,23 @@ server:
     - name: fiori-tools-proxy
       afterMiddleware: compression
       configuration:
-        ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+        ignoreCertError: false
+        backend:
+          - url: https://my419189.s4hana.cloud.sap/
+            authenticationType: BasicAuthentication
+            destination: xyz
+            path: /sap
+          - url: https://my419189.s4hana.cloud.sap/
+            authenticationType: BasicAuthentication
+            destination: testing
+            path: /sap/opu/odata/sap/YY1_TESTINGDATA_CDS/
+    - name: sap-fe-mockserver
+      beforeMiddleware: csp
+      configuration:
+        mountPath: /
+        services:
+          - urlPath: /sap/opu/odata/sap/YY1_TESTINGDATA_CDS
+            metadataPath: ./webapp/localService/mainService/metadata.xml
+            mockdataPath: ./webapp/localService/mainService/data
+            generateMockData: true
+        annotations: []

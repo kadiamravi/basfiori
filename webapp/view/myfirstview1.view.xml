@@ -1,136 +1,556 @@
-<mvc:View controllerName="com.test.ravifirstsapui5.controller.myfirstview1"
+<mvc:View
+    xmlns:table="sap.ui.table"
+    controllerName="com.test.ravifirstsapui5.controller.myfirstview1"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m" xmlns:l="sap.ui.layout">
-    <Page id="page" title="firstview">
-    <content>
-        <Panel headerText="Employee Screen" expandable="true" expanded="true">
-            <l:Grid defaultSpan="L6" vSpacing="0">
-                <l:content>
-                    <Label text = "empid"></Label>
-                    <Input ></Input>
-                    <Label text = "empnm"></Label>
-                    <Input ></Input>
-                    <Label text = "empdes"></Label>
-                    <Input ></Input>
-                    <Label text = "empskil"></Label>
-                    <Input ></Input>
-                    <Label text = "empphno"></Label>
-                    <Input ></Input>
-                    <Label text = "empemailid"></Label>
-                    <Input ></Input>
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+>
+    <Page
+        id="page"
+        title="firstview"
+    >
+        <content>
+        
+            <f:SimpleForm
+                editable="true"
+                layout="ResponsiveGridLayout"
+                labelSpanL="2"
+                labelSpanM="2"
+                emptySpanL="0"
+                emptySpanM="0"
+                columnsL="3"
+                columnsM="3"
+              
+            >
+                <f:content>
+                <core:Title text = "Filters :"></core:Title>
+                    <Label text="employee id" />
+                    <Input id = "Idempid" showValueHelp="true" valueHelpRequest="onpressvhelp"></Input>
+                    <Label text="Designation" />
+                    <ComboBox id = "Iddesign" items = "{YY1_TESTINGDATA_CDS>/YY1_TESTINGDATA}">
+                    <items>
+                            <core:Item
+                                text="{YY1_TESTINGDATA_CDS>Designation}"
+                                key="{YY1_TESTINGDATA_CDS>Designation}"
+                            />
+                        </items>
+                    </ComboBox>
 
-                </l:content>
+                     <Label text="Saleary" />
+                     <Select id = "Idsalop">
+                    <items>
+                            <core:Item
+                                text="="
+                                key="EQ"
+                            />
+                              <core:Item
+                                text="&lt;"
+                                key="LT"
+                            />
+                              <core:Item
+                                text="&gt;"
+                                key="GT"
+                            />
+                             <core:Item
+                                text="&lt;="
+                                key="LE"
+                            />
+                             <core:Item
+                                text="&gt;="
+                                key="GE"
+                            />
+                        </items> 
+                     </Select>
+                     
+                     <Input id="Idsal"></Input>
+                     <Label text = "Date of Joing"></Label>
+                    <DatePicker id = "Iddoj" ></DatePicker>
+                   <core:Title text = "Sorting :"></core:Title>
+                   <Label text = "Sort By"></Label>
+                   <ComboBox id ="Idsortby">
+                   <items>
+                   <core:Item text = "Employee id" key ="Empid"></core:Item>
+                   <core:Item text = "Designation" key ="Designation"></core:Item>
+                   <core:Item text = "Date of Joining id" key ="DOJ"></core:Item>
+                   <core:Item text = "Salary" key ="Salary"></core:Item>
+                   <core:Item text = "Rating" key ="Rating"></core:Item>
+                   </items>
+                   </ComboBox>
+                   <Label text = "Sort order"></Label>
+                   <RadioButtonGroup id="Idsortorder" columns="2" selectedIndex="-1">
+                   <buttons>
+                   <RadioButton text ="Ascending"></RadioButton>
+                   <RadioButton text ="Descending"></RadioButton>
+                   </buttons>
+                   </RadioButtonGroup>
+                   <core:Title text = "Grouping :"></core:Title>
+                   <Label text = "Group By"></Label>
+                   <ComboBox id ="Idgroupby">
+                   <items>
+                   <core:Item text = "Designation" key ="Designation"></core:Item>                   <core:Item text = "Salary" key ="Salary"></core:Item>
+                   <core:Item text = "Rating" key ="Rating"></core:Item>
+                   </items>
+                   </ComboBox>
+                   <Label text = "Group order"></Label>
+                   <RadioButtonGroup id="Idgrouporder" columns="2" selectedIndex="-1">
+                   <buttons>
+                   <RadioButton text ="Ascending"></RadioButton>
+                   <RadioButton text ="Descending"></RadioButton>
+                   </buttons>
+                   </RadioButtonGroup>
+                </f:content>
+            </f:SimpleForm>
+            <FlexBox justifyContent="End">
+            <Button text = "Create employee" class= "sapUiTinyMarginEnd" press="Oncreateemp"></Button>
+            <Button text = "GO" type = "Accept" class= "sapUiTinyMarginEnd" press="Onbuttongo"></Button>
+            <Button text = "Reset" type = "Reject" press = "onbuttonreset"></Button>
+            <Button icon = "sap-icon://excel-attachment" press = "onexcelpress"></Button>
+            </FlexBox>
+            <ScrollContainer vertical="true" horizontal="true">
+             <Table id="Itable" items="{YY1_TESTINGDATA_CDS>/YY1_TESTINGDATA}">
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="Filtering records" />
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text="Employee id" />
+                    </Column>
+                    <Column>
+                        <Text text="Employee Name" />
+                    </Column>
+                    <Column>
+                        <Text text="Designation" />
+                    </Column>
 
-            </l:Grid>
-            </Panel>
-            <Panel headerText="Employee Personal details" expandable="true">
-            <l:Grid defaultSpan="L3" vSpacing="0">
-                <l:content>
-                    <Label text = "empid" class = "sapUiTinyMarginTop"></Label>
-                    <Input ></Input>
-                    <Label text = "empnm" class = "sapUiTinyMarginTop"></Label>
-                    <Input ></Input>
-                    <Label text = "empdes" class = "sapUiTinyMarginTop"> </Label>
-                    <Input ></Input>
-                    <Label text = "empskil" class = "sapUiTinyMarginTop"></Label>
-                    <Input ></Input>
-                    <Label text = "empphno" class = "sapUiTinyMarginTop"></Label>
-                    <Input ></Input>
-                    <Label text = "empemailid" class = "sapUiTinyMarginTop"></Label>
-                    <Input ></Input>
-
-                </l:content>
-
-            </l:Grid>
-            </Panel>
-            <Panel headerText="Employee 3" expandable="true">
-            <l:Grid defaultSpan="L2" vSpacing="0">
-                <l:content>
-                    <Label text = "empid" class = "sapUiTinyMarginTop"></Label>
-                    <Input ></Input>
-                    <Label text = "empnm" class = "sapUiTinyMarginTop"></Label>
-                    <Input ></Input>
-                    <Label text = "empdes" class = "sapUiTinyMarginTop"> </Label>
-                    <Input ></Input>
-                    <Label text = "empskil" class = "sapUiTinyMarginTop"></Label>
-                    <Input ></Input>
-                    <Label text = "empphno" class = "sapUiTinyMarginTop"></Label>
-                    <Input ></Input>
-                    <Label text = "empemailid" class = "sapUiTinyMarginTop"></Label>
-                    <Input ></Input>
-
-                </l:content>
-
-            </l:Grid>
-            </Panel>
-             <Panel headerText="Zigzag" expandable="true">
-            <l:Grid vSpacing="0">
-                <l:content>
-                    <Label text = "empid" class = "sapUiTinyMarginTop">
-                    <layoutData>
-                        <l:GridData span="L3"></l:GridData>
-                    </layoutData>
-                    </Label>
-                    <Input >
-                    <layoutData>
-                        <l:GridData span="L9"></l:GridData>
-                    </layoutData>
-                    </Input>
-                    <Label text = "empnm" class = "sapUiTinyMarginTop">
-                     <layoutData>
-                        <l:GridData span="L3"></l:GridData>
-                    </layoutData>
-                    </Label>
-                    <Input >
-                    <layoutData>
-                        <l:GridData span="L9"></l:GridData>
-                    </layoutData>
-                    </Input>
-                    <Label text = "empdes" class = "sapUiTinyMarginTop">
-                    <layoutData>
-                        <l:GridData span="L2"></l:GridData>
-                    </layoutData>
-                     </Label>
-                    <Input >
-                    <layoutData>
-                        <l:GridData span="L2"></l:GridData>
-                    </layoutData>
-                    </Input>
-                    <Label text = "empskil" class = "sapUiTinyMarginTop">
-                    <layoutData>
-                        <l:GridData span="L2"></l:GridData>
-                    </layoutData>
-                    </Label>
-                    <Input >
-                    <layoutData>
-                        <l:GridData span="L2"></l:GridData>
-                    </layoutData>
-                    </Input>
-                    <Label text = "empphno" class = "sapUiTinyMarginTop"></Label>
-                    <Input ></Input>
-                    <Label text = "empemailid" class = "sapUiTinyMarginTop"></Label>
-                    <Input ></Input>
-
-                </l:content>
-
-            </l:Grid>
-            </Panel>
+                    <Column>
+                        <Text text="Date and time" />
+                    </Column>
+                    <Column>
+                        <Text text="Date of Joing" />
+                    </Column>
+                    <Column>
+                        <Text text="Salary" />
+                    </Column>
+                    <Column>
+                        <Text text="Rating" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem type ="Active" press= "onRowpress">
+                        <cells>
+                            <!-- <Text  text = "{YY1_TESTINGDATA_CDS>Empid}"></Text> -->
+                            <ObjectStatus
+                                text="{YY1_TESTINGDATA_CDS>Empid}"
+                                state="{path:'YY1_TESTINGDATA_CDS>Empid',formatter:'.f.color'}"
+                            />
+                            <Text
+                                text="{path:'YY1_TESTINGDATA_CDS>EmpName',formatter:'.f.formatname'}"
+                            />
+                            <Text
+                              text="{YY1_TESTINGDATA_CDS>Designation}"
+                            />
+                            <Text
+                                text="{path:'YY1_TESTINGDATA_CDS>SAP_CreatedDateTime', formatter :'.f.Fdate'}"
+                            />
+                            <Text
+                                text="{path:'YY1_TESTINGDATA_CDS>DOJ', formatter :'.f.Fdate'}"
+                            />
+                            <Text
+                                text="{YY1_TESTINGDATA_CDS>Salary}"
+                            />
+                                 <!-- <Text
+                                text="{YY1_TESTINGDATA_CDS>Rating}"
+                            /> -->
+                            <RatingIndicator value = "{YY1_TESTINGDATA_CDS>Rating}"></RatingIndicator>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+            </ScrollContainer>
           
-          
+            <f:SimpleForm
+                title="Multi dimesion ui"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                labelSpanL="2"
+                labelSpanM="2"
+                emptySpanL="7"
+                emptySpanM="7"
+                columnsL="3"
+                columnsM="2"
+            >
+                <f:content>
+                    <Label text="Select box" />
+                    <Select
+                        id="idSel"
+                        items="{YY1_TESTINGDATA_CDS>/YY1_TESTINGDATA}"
+                    >
+                        <items>
+                            <core:Item
+                                text="{YY1_TESTINGDATA_CDS>EmpName}"
+                                key="{YY1_TESTINGDATA_CDS>EmpName}"
+                            />
+                        </items>
+                    </Select>
+                    <Label text="Combo box" />
+                    <ComboBox
+                        id="idComb"
+                        items="{YY1_TESTINGDATA_CDS>/YY1_TESTINGDATA}"
+                    >
+                        <items>
+                            <core:Item
+                                text="{YY1_TESTINGDATA_CDS>EmpName}"
+                                key="{YY1_TESTINGDATA_CDS>EmpName}"
+                            />
+                        </items>
+                    </ComboBox>
+                    <Label text="Multi Combo box" />
+                    <MultiComboBox
+                        id="idMcomb"
+                        items="{YY1_TESTINGDATA_CDS>/YY1_TESTINGDATA}"
+                        showSelectAll="true"
+                    >
+                        <items>
+                            <core:Item
+                                text="{YY1_TESTINGDATA_CDS>EmpName}"
+                                key="{YY1_TESTINGDATA_CDS>EmpName}"
+                            />
+                        </items>
+                    </MultiComboBox>
+                    <Label text="Radio button" />
+                    <RadioButtonGroup
+                        id="idRad"
+                        buttons="{YY1_TESTINGDATA_CDS>/YY1_TESTINGDATA}"
+                        columns="2"
+                        selectedIndex="-1"
+                    >
+                        <buttons>
+                            <RadioButton text="{YY1_TESTINGDATA_CDS>EmpName}" />
+                        </buttons>
+                    </RadioButtonGroup>
+                </f:content>
+            </f:SimpleForm>
+
+            <List items="{ravijson>/results}">
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="Employee list List item" />
+                    </Toolbar>
+                </headerToolbar>
+                <items>
+                    <ObjectListItem
+                        title="{ravijson>EmpName}"
+                        number="100000"
+                        numberUnit="INR"
+                    >
+                        <attributes>
+                            <ObjectAttribute
+                                title="Employee id"
+                                text="{ravijson>Empid}"
+                            />
+                            <ObjectAttribute
+                                title="Employee Designation"
+                                text="{ravijson>Designation}"
+                            />
+                        </attributes>
+                        <firstStatus>
+                            <ObjectStatus
+                                text="{ravijson>Designation}"
+                                state="{path:'ravijson>Designation',formatter:'.f.color'}"
+                            />
+                        </firstStatus>
+                    </ObjectListItem>
+                </items>
+            </List>
+            <ScrollContainer
+                vertical="true"
+                horizontal="true"
+            >
+                <Table items="{ravijson>/results}">
+                    <headerToolbar>
+                        <Toolbar>
+                            <Title text="Employee list json model" />
+                        </Toolbar>
+                    </headerToolbar>
+                    <columns>
+                        <Column width="10rem">
+                            <Text text="SLno" />
+                        </Column>
+                        <Column width="10rem">
+                            <Text text="Employee id" />
+                        </Column>
+                        <Column width="10rem">
+                            <Text text="Employee Name" />
+                        </Column>
+                        <Column width="10rem">
+                            <Text text="Designation" />
+                        </Column>
+                        <Column width="10rem">
+                            <Text text="SAP_CreatedByUser_Text" />
+                        </Column>
+                        <Column width="25rem">
+                            <Text text="SAP_CreatedDateTime" />
+                        </Column>
+                        <Column width="10rem">
+                            <Text text="SAP_Description" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{ravijson>Slno}" />
+                                <Text text="{ravijson>Empid}" />
+                                <Text text="{ravijson>EmpName}" />
+                                <Text text="{ravijson>Designation}" />
+                                <Text
+                                    text="{ravijson>SAP_CreatedByUser_Text}"
+                                />
+                                <Text
+                                    text="{path:'ravijson>SAP_CreatedDateTime', formatter :'.f.Fdate'}"
+                                />
+                                <Text text="{ravijson>SAP_Description}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </ScrollContainer>
+
+            <Table items="{YY1_TESTINGDATA_CDS>/YY1_TESTINGDATA}">
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="Employee list odata model" />
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text="Employee id" />
+                    </Column>
+                    <Column>
+                        <Text text="Employee Name" />
+                    </Column>
+                    <Column>
+                        <Text text="Date and time" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <!-- <Text  text = "{YY1_TESTINGDATA_CDS>Empid}"></Text> -->
+                            <ObjectStatus
+                                text="{YY1_TESTINGDATA_CDS>Empid}"
+                                state="{path:'YY1_TESTINGDATA_CDS>Empid',formatter:'.f.color'}"
+                            />
+                            <Text
+                                text="{path:'YY1_TESTINGDATA_CDS>EmpName',formatter:'.f.formatname'}"
+                            />
+                            <Text
+                                text="{path:'YY1_TESTINGDATA_CDS>SAP_CreatedDateTime', formatter :'.f.Fdate'}"
+                            />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+            <Panel
+                headerText="Employee Screen"
+                expandable="true"
+                expanded="true"
+            >
+                <l:Grid
+                    defaultSpan="L6"
+                    vSpacing="0"
+                >
+                    <l:content>
+                        <Label text="empid" />
+                        <Input />
+                        <Label text="empnm" />
+                        <Input />
+                        <Label text="empdes" />
+                        <Input />
+                        <Label text="empskil" />
+                        <Input />
+                        <Label text="empphno" />
+                        <Input />
+                        <Label text="empemailid" />
+                        <Input />
+                    </l:content>
+                </l:Grid>
+            </Panel>
+            <Panel
+                headerText="Employee Personal details"
+                expandable="true"
+            >
+                <l:Grid
+                    defaultSpan="L3"
+                    vSpacing="0"
+                >
+                    <l:content>
+                        <Label
+                            text="empid"
+                            class="sapUiTinyMarginTop"
+                        />
+                        <Input />
+                        <Label
+                            text="empnm"
+                            class="sapUiTinyMarginTop"
+                        />
+                        <Input />
+                        <Label
+                            text="empdes"
+                            class="sapUiTinyMarginTop"
+                        />
+                        <Input />
+                        <Label
+                            text="empskil"
+                            class="sapUiTinyMarginTop"
+                        />
+                        <Input />
+                        <Label
+                            text="empphno"
+                            class="sapUiTinyMarginTop"
+                        />
+                        <Input />
+                        <Label
+                            text="empemailid"
+                            class="sapUiTinyMarginTop"
+                        />
+                        <Input />
+                    </l:content>
+                </l:Grid>
+            </Panel>
+            <Panel
+                headerText="Employee 3"
+                expandable="true"
+            >
+                <l:Grid
+                    defaultSpan="L2"
+                    vSpacing="0"
+                >
+                    <l:content>
+                        <Label
+                            text="empid"
+                            class="sapUiTinyMarginTop"
+                        />
+                        <Input />
+                        <Label
+                            text="empnm"
+                            class="sapUiTinyMarginTop"
+                        />
+                        <Input />
+                        <Label
+                            text="empdes"
+                            class="sapUiTinyMarginTop"
+                        />
+                        <Input />
+                        <Label
+                            text="empskil"
+                            class="sapUiTinyMarginTop"
+                        />
+                        <Input />
+                        <Label
+                            text="empphno"
+                            class="sapUiTinyMarginTop"
+                        />
+                        <Input />
+                        <Label
+                            text="empemailid"
+                            class="sapUiTinyMarginTop"
+                        />
+                        <Input />
+                    </l:content>
+                </l:Grid>
+            </Panel>
+            <Panel
+                headerText="Zigzag"
+                expandable="true"
+            >
+                <l:Grid vSpacing="0">
+                    <l:content>
+                        <Label
+                            text="empid"
+                            class="sapUiTinyMarginTop"
+                        >
+                            <layoutData>
+                                <l:GridData span="L3" />
+                            </layoutData>
+                        </Label>
+                        <Input>
+                            <layoutData>
+                                <l:GridData span="L9" />
+                            </layoutData>
+                        </Input>
+                        <Label
+                            text="empnm"
+                            class="sapUiTinyMarginTop"
+                        >
+                            <layoutData>
+                                <l:GridData span="L3" />
+                            </layoutData>
+                        </Label>
+                        <Input>
+                            <layoutData>
+                                <l:GridData span="L9" />
+                            </layoutData>
+                        </Input>
+                        <Label
+                            text="empdes"
+                            class="sapUiTinyMarginTop"
+                        >
+                            <layoutData>
+                                <l:GridData span="L2" />
+                            </layoutData>
+                        </Label>
+                        <Input>
+                            <layoutData>
+                                <l:GridData span="L2" />
+                            </layoutData>
+                        </Input>
+                        <Label
+                            text="empskil"
+                            class="sapUiTinyMarginTop"
+                        >
+                            <layoutData>
+                                <l:GridData span="L2" />
+                            </layoutData>
+                        </Label>
+                        <Input>
+                            <layoutData>
+                                <l:GridData span="L2" />
+                            </layoutData>
+                        </Input>
+                        <Label
+                            text="empphno"
+                            class="sapUiTinyMarginTop"
+                        />
+                        <Input />
+                        <Label
+                            text="empemailid"
+                            class="sapUiTinyMarginTop"
+                        />
+                        <Input />
+                    </l:content>
+                </l:Grid>
+            </Panel>
+
             <!-- <Button text="Hello button1" press ="clickb1"> </Button>
         <Label text = "firstview button"></Label>
         <Text id="idTextFirst" text = "Ravi first screen" textAlign="Center" width="100%" class= "sapMH1FontSize"></Text>
         <Label id="idLb1"  text = "Enter the Name" required="true" class="sapUiMediumMarginBegin"></Label>
         <Input id="idIpName" width="30%" maxLength="10" class="sapUiTinyMarginBegin"></Input>
         <Button id="idBtnsubmit" text="Submit" type="Accept" class="sapUiTinyMarginBegin" press="onSubmit"></Button> -->
-    </content>
-    <footer>
-        <Bar>
-            <contentRight>
-            <Button text="Hello button1" press ="clickb1"> </Button> 
-            </contentRight>
-            
-        </Bar>
-    </footer>
+        </content>
+        <footer>
+            <Bar>
+                <contentRight>
+                    <Button
+                        text="Hello button1"
+                        press="clickb1"
+                    />
+                </contentRight>
+            </Bar>
+        </footer>
     </Page>
 </mvc:View>

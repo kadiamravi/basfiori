@@ -14,6 +14,26 @@
       "id": "@sap/generator-fiori:basic",
       "version": "1.17.6",
       "toolsId": "cc4d8947-13d6-4242-81b0-863509dbd3e8"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/YY1_TESTINGDATA_CDS",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "YY1_TESTINGDATA_CDS": {
+        "uri": "/sap/opu/odata/sap/YY1_TESTINGDATA_CDS/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/YY1_TESTINGDATA_CDS/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
     }
   },
   "sap.ui": {
@@ -51,6 +71,33 @@
         "settings": {
           "bundleName": "com.test.ravifirstsapui5.i18n.i18n"
         }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Inline",
+          "refreshAfterChange": false,
+          "metadataUrlParams": {
+            "sap-value-list": "none"
+          }
+        }
+      },
+      "YY1_TESTINGDATA_CDS": {
+        "dataSource": "YY1_TESTINGDATA_CDS",
+        "preload": true,
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Inline",
+          "refreshAfterChange": false,
+          "metadataUrlParams": {
+            "sap-value-list": "none"
+          }
+        }
+      },
+      "ravijson":{
+         "type": "sap.ui.model.json.JSONModel"
       }
     },
     "resources": {
@@ -75,14 +122,14 @@
       "routes": [
         {
           "name": "Routesimpleform",
-          "pattern": "",
+          "pattern": "simple",
           "target": [
             "Targetsimpleform"
           ]
         },
         {
           "name": "Routemyfirstview1",
-          "pattern": "view1",
+          "pattern": "",
           "target": [
             "Targetmyfirstview1"
           ]
@@ -93,22 +140,32 @@
           "target": [
             "Targetmysecondview1"
           ]
+        },
+        {
+          "name": "Routeempdetview",
+          "pattern": "empdet/{key}",
+          "target": [
+            "Targetempdetview"
+          ]
         }
       ],
       "targets": {
-        "Targetsimpleform": {
-          "id": "simpleform",
-          "name": "simpleform"
-        },
-      
         "Targetmyfirstview1": {
           "id": "myfirstview1",
           "name": "myfirstview1"
         },
-        
+       
+        "Targetsimpleform": {
+          "id": "simpleform",
+          "name": "simpleform"
+        },
         "Targetmysecondview1": {
           "id": "mysecondview1",
           "name": "mysecondview1"
+        },
+        "Targetempdetview": {
+          "id": "empdetview",
+          "name": "empdetview"
         }
       }
     },

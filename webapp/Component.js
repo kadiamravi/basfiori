@@ -21,6 +21,21 @@ sap.ui.define([
 
             // enable routing
             this.getRouter().initialize();
+            
+            var raviodmodel = this.getModel("YY1_TESTINGDATA_CDS"); //gives the odata model
+            var ravijsonnmodel = this.getModel("ravijson"); //gives the json model
+             raviodmodel.read("/YY1_TESTINGDATA",{
+                success:function(data){
+                    for(var i=0;i<data.results.length;i++){
+                        data.results[i].Slno = i+1;
+
+                    }
+                    ravijsonnmodel.setData(data) ;
+                },
+                error:function(){
+
+                }
+             });
         }
     });
 });

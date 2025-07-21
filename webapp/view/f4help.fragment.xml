@@ -1,0 +1,31 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Dialog
+        title="Select employee"
+        contentWidth="60%"
+    >
+        <Table items="{YY1_TESTINGDATA_CDS>/YY1_TESTINGDATA}">
+            <columns>
+                <Column>
+                    <Text text="Employee id" />
+                </Column>
+                <Column>
+                    <Text text="Employee Name" />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem type="Active" press="onpressf4">
+                    <cells>
+                        <Text text="{YY1_TESTINGDATA_CDS>Empid}" />
+                        <Text text="{YY1_TESTINGDATA_CDS>EmpName}" />
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+        <endButton>
+            <Button text="Close" type ="Reject" press="onCloseD" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

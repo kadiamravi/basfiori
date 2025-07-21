@@ -1,0 +1,20 @@
+<mvc:View
+    xmlns:table="sap.ui.table"
+    controllerName="com.test.ravifirstsapui5.controller.empdetview"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+>
+    <Page
+        id="page2"
+        title="Employee detail view"
+    >
+        
+        <content>
+        <Toolbar type = "Right" ></Toolbar>
+            <Panel id="Idpanel" />
+        </content>
+    </Page>
+</mvc:View>

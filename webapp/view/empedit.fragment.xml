@@ -1,0 +1,30 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+>
+    <f:SimpleForm
+        title="Employee create"
+        editable="true"
+        layout="ResponsiveGridLayout"
+        labelSpanL="2"
+        labelSpanM="2"
+        emptySpanL="7"
+        emptySpanM="7"
+        columnsL="3"
+        columnsM="3"
+    >
+        <f:content>
+            <Label text="Employee id" />
+            <Input value="{YY1_TESTINGDATA_CDS>Empid}" />
+            <Label text="Employee Name" />
+            <Input value="{YY1_TESTINGDATA_CDS>EmpName}" />
+            <Label text="Disignation" />
+            <Input value="{YY1_TESTINGDATA_CDS>Designation}" />
+            <Label text="Salary" />
+            <Input value="{YY1_TESTINGDATA_CDS>Salary}" />
+            <Label text="Date of Joing" />
+            <Input value="{YY1_TESTINGDATA_CDS>DOJ}" />
+        </f:content>
+    </f:SimpleForm>
+</core:FragmentDefinition>

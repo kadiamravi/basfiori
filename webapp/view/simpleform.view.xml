@@ -11,24 +11,69 @@
         title="Simpleform"
     >
         <content>
-            <f:SimpleForm title="Employee details" editable="true" layout="ResponsiveGridLayout" 
-            labelSpanL="2" labelSpanM="2" emptySpanL="7" emptySpanM="7" columnsL="3" columnsM="2">
+            <!-- <HBox>
+                <Button text="button1" />
+                <Button text="button2" />
+            </HBox> -->
+            <!-- <VBox >
+                <Button text="button1" />
+                <Button text="button2" />
+            
+            </VBox> -->
+            <!-- <FlexBox justifyContent="Center" alignItems="Center" height="100%" >
+                <Button text="button1" type = "Accept" class = "sapUiTinyMarginEnd"  />
+                <Button text="button2" type = "Reject"/>
+            </FlexBox> -->
+            <ObjectHeader title="RAVI" number="10000" numberUnit="INR" backgroundDesign="Translucent">
+            <attributes>
+            <ObjectAttribute title = "Enpno" text ="10001"></ObjectAttribute>
+            <ObjectAttribute title = "Attribute" text ="ABC123"></ObjectAttribute>
+            </attributes>
+            <statuses>
+            <ObjectStatus text = "object status" state="Success"></ObjectStatus>
+            </statuses>
+            </ObjectHeader>
+            <IconTabBar >
+            <items>
+                <IconTabFilter icon="sap-icon://information" >
+                <Text text="first tab"></Text>
+                </IconTabFilter>
+                
+                 <IconTabFilter icon="sap-icon://notes" >
+                 <Text text="seond tab"></Text>
+                 </IconTabFilter>
+            </items>
+            </IconTabBar>
+            
+
+            <f:SimpleForm
+                title="Employee details"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                labelSpanL="2"
+                labelSpanM="2"
+                emptySpanL="7"
+                emptySpanM="7"
+                columnsL="3"
+                columnsM="2"
+            >
                 <f:content>
-                <c:Title text="Details1"></c:Title>
-                    <Label text="empid" />
-                    <Input />
-                    <Label text="empnm" />
+                    <c:Title text="Details1" />
+                    <Label text="empid" required="true"/>
+                    <Input id="idEmpid"></Input>
+                    
+                    <!-- <Label text="empnm" />
                     <Input />
                     <Label text="empdes" />
                     <Input />
-                <c:Title text="Details2"></c:Title>
+                    <c:Title text="Details2" />
                     <Label text="empskil" />
                     <Input />
-                <c:Title text="Details3"></c:Title>
+                    <c:Title text="Details3" />
                     <Label text="empphno" />
                     <Input />
                     <Label text="empemailid" />
-                    <Input />
+                    <Input /> -->
                 </f:content>
             </f:SimpleForm>
         </content>
