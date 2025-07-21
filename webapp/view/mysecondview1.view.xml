@@ -1,9 +1,10 @@
 <mvc:View controllerName="com.test.ravifirstsapui5.controller.mysecondview1"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
-    <Page id="page" title="secondview1">
+    <Page id="page" title="secondview" showNavButton="true" navButtonPress="clickb2">
     <content>
-        <Button text="Hello button2"></Button>
+        <!-- <Button text="Hello button2" press ="clickb2"> </Button> -->
+        <Label text = "Second view button"></Label>
     </content>
     </Page>
 </mvc:View>

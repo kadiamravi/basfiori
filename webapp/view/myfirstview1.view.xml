@@ -1,9 +1,136 @@
 <mvc:View controllerName="com.test.ravifirstsapui5.controller.myfirstview1"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
-    <Page id="page" title="firstview1">
+    xmlns="sap.m" xmlns:l="sap.ui.layout">
+    <Page id="page" title="firstview">
     <content>
-        <Button text="Hello button1"></Button>
+        <Panel headerText="Employee Screen" expandable="true" expanded="true">
+            <l:Grid defaultSpan="L6" vSpacing="0">
+                <l:content>
+                    <Label text = "empid"></Label>
+                    <Input ></Input>
+                    <Label text = "empnm"></Label>
+                    <Input ></Input>
+                    <Label text = "empdes"></Label>
+                    <Input ></Input>
+                    <Label text = "empskil"></Label>
+                    <Input ></Input>
+                    <Label text = "empphno"></Label>
+                    <Input ></Input>
+                    <Label text = "empemailid"></Label>
+                    <Input ></Input>
+
+                </l:content>
+
+            </l:Grid>
+            </Panel>
+            <Panel headerText="Employee Personal details" expandable="true">
+            <l:Grid defaultSpan="L3" vSpacing="0">
+                <l:content>
+                    <Label text = "empid" class = "sapUiTinyMarginTop"></Label>
+                    <Input ></Input>
+                    <Label text = "empnm" class = "sapUiTinyMarginTop"></Label>
+                    <Input ></Input>
+                    <Label text = "empdes" class = "sapUiTinyMarginTop"> </Label>
+                    <Input ></Input>
+                    <Label text = "empskil" class = "sapUiTinyMarginTop"></Label>
+                    <Input ></Input>
+                    <Label text = "empphno" class = "sapUiTinyMarginTop"></Label>
+                    <Input ></Input>
+                    <Label text = "empemailid" class = "sapUiTinyMarginTop"></Label>
+                    <Input ></Input>
+
+                </l:content>
+
+            </l:Grid>
+            </Panel>
+            <Panel headerText="Employee 3" expandable="true">
+            <l:Grid defaultSpan="L2" vSpacing="0">
+                <l:content>
+                    <Label text = "empid" class = "sapUiTinyMarginTop"></Label>
+                    <Input ></Input>
+                    <Label text = "empnm" class = "sapUiTinyMarginTop"></Label>
+                    <Input ></Input>
+                    <Label text = "empdes" class = "sapUiTinyMarginTop"> </Label>
+                    <Input ></Input>
+                    <Label text = "empskil" class = "sapUiTinyMarginTop"></Label>
+                    <Input ></Input>
+                    <Label text = "empphno" class = "sapUiTinyMarginTop"></Label>
+                    <Input ></Input>
+                    <Label text = "empemailid" class = "sapUiTinyMarginTop"></Label>
+                    <Input ></Input>
+
+                </l:content>
+
+            </l:Grid>
+            </Panel>
+             <Panel headerText="Zigzag" expandable="true">
+            <l:Grid vSpacing="0">
+                <l:content>
+                    <Label text = "empid" class = "sapUiTinyMarginTop">
+                    <layoutData>
+                        <l:GridData span="L3"></l:GridData>
+                    </layoutData>
+                    </Label>
+                    <Input >
+                    <layoutData>
+                        <l:GridData span="L9"></l:GridData>
+                    </layoutData>
+                    </Input>
+                    <Label text = "empnm" class = "sapUiTinyMarginTop">
+                     <layoutData>
+                        <l:GridData span="L3"></l:GridData>
+                    </layoutData>
+                    </Label>
+                    <Input >
+                    <layoutData>
+                        <l:GridData span="L9"></l:GridData>
+                    </layoutData>
+                    </Input>
+                    <Label text = "empdes" class = "sapUiTinyMarginTop">
+                    <layoutData>
+                        <l:GridData span="L2"></l:GridData>
+                    </layoutData>
+                     </Label>
+                    <Input >
+                    <layoutData>
+                        <l:GridData span="L2"></l:GridData>
+                    </layoutData>
+                    </Input>
+                    <Label text = "empskil" class = "sapUiTinyMarginTop">
+                    <layoutData>
+                        <l:GridData span="L2"></l:GridData>
+                    </layoutData>
+                    </Label>
+                    <Input >
+                    <layoutData>
+                        <l:GridData span="L2"></l:GridData>
+                    </layoutData>
+                    </Input>
+                    <Label text = "empphno" class = "sapUiTinyMarginTop"></Label>
+                    <Input ></Input>
+                    <Label text = "empemailid" class = "sapUiTinyMarginTop"></Label>
+                    <Input ></Input>
+
+                </l:content>
+
+            </l:Grid>
+            </Panel>
+          
+          
+            <!-- <Button text="Hello button1" press ="clickb1"> </Button>
+        <Label text = "firstview button"></Label>
+        <Text id="idTextFirst" text = "Ravi first screen" textAlign="Center" width="100%" class= "sapMH1FontSize"></Text>
+        <Label id="idLb1"  text = "Enter the Name" required="true" class="sapUiMediumMarginBegin"></Label>
+        <Input id="idIpName" width="30%" maxLength="10" class="sapUiTinyMarginBegin"></Input>
+        <Button id="idBtnsubmit" text="Submit" type="Accept" class="sapUiTinyMarginBegin" press="onSubmit"></Button> -->
     </content>
+    <footer>
+        <Bar>
+            <contentRight>
+            <Button text="Hello button1" press ="clickb1"> </Button> 
+            </contentRight>
+            
+        </Bar>
+    </footer>
     </Page>
 </mvc:View>

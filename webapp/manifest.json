@@ -74,8 +74,15 @@
       },
       "routes": [
         {
-          "name": "Routemyfirstview1",
+          "name": "Routesimpleform",
           "pattern": "",
+          "target": [
+            "Targetsimpleform"
+          ]
+        },
+        {
+          "name": "Routemyfirstview1",
+          "pattern": "view1",
           "target": [
             "Targetmyfirstview1"
           ]
@@ -89,10 +96,16 @@
         }
       ],
       "targets": {
+        "Targetsimpleform": {
+          "id": "simpleform",
+          "name": "simpleform"
+        },
+      
         "Targetmyfirstview1": {
           "id": "myfirstview1",
           "name": "myfirstview1"
         },
+        
         "Targetmysecondview1": {
           "id": "mysecondview1",
           "name": "mysecondview1"
