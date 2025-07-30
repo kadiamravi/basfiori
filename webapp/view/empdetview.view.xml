@@ -2,6 +2,7 @@
     xmlns:table="sap.ui.table"
     controllerName="com.test.ravifirstsapui5.controller.empdetview"
     xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
     xmlns="sap.m"
     xmlns:l="sap.ui.layout"
     xmlns:f="sap.ui.layout.form"
@@ -10,11 +11,23 @@
     <Page
         id="page2"
         title="Employee detail view"
+        showNavButton="true"
+        navButtonPress="onNavBack"
     >
-        
         <content>
-        <Toolbar type = "Right" ></Toolbar>
-            <Panel id="Idpanel" />
+            <Panel id="Idpanel">
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="Employee Details" />
+                        <ToolbarSpacer />
+                        <Button id ="Bidedit" icon="sap-icon://edit" type="Emphasized"  visible="false" press = "Onpressedit"/>
+                        <Button id = "Biddelete" icon="sap-icon://delete" type="Reject" visible="false" />
+                        <Button id = "Biddisplay" icon="sap-icon://display" type="Emphasized" visible="false" />
+                        <Button id = "Bidsave" icon="sap-icon://save" type="Accept" visible="false" press = "Onsavebutton" />
+                        <Button id = "Bidcancel" icon="sap-icon://cancel" type="Reject" visible="false" />
+                    </Toolbar>
+                </headerToolbar>
+            </Panel>
         </content>
     </Page>
 </mvc:View>

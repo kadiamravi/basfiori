@@ -130,6 +130,8 @@ sap.ui.define([
             this.getView().byId("Iddoj").setValue("");
             this.getView().byId("Idsortby").setSelectedKey("");
             this.getView().byId("Idsortorder").setSelectedIndex(-1);
+            this.getView().byId("Idgroupby").setSelectedKey("");
+            this.getView().byId("Idgrouporder").setSelectedIndex(-1);
             this.getView().byId("Itable").getBinding("items").filter([]);
             this.getView().byId("Itable").getBinding("items").sort([]);
         },
@@ -151,6 +153,7 @@ sap.ui.define([
             });
 
         },
+       
         
         onexcelpress: function () {
             var aCols, oRowBinding, oSetting, oSheet;

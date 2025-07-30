@@ -4,7 +4,6 @@
     xmlns:f="sap.ui.layout.form"
 >
     <f:SimpleForm
-        title="Employee create"
         editable="true"
         layout="ResponsiveGridLayout"
         labelSpanL="2"
@@ -15,16 +14,44 @@
         columnsM="3"
     >
         <f:content>
+            <Label text="SSUID" />
+            <Text
+                id="Idssuidedit"
+                text="{YY1_TESTINGDATA_CDS>SAP_UUID}"
+            />
             <Label text="Employee id" />
-            <Input value="{YY1_TESTINGDATA_CDS>Empid}" />
+            <Input
+                id="Idempidedit"
+                value="{YY1_TESTINGDATA_CDS>Empid}"
+            />
             <Label text="Employee Name" />
-            <Input value="{YY1_TESTINGDATA_CDS>EmpName}" />
+            <Input
+                id="Idempnameedit"
+                value="{YY1_TESTINGDATA_CDS>EmpName}"
+            />
             <Label text="Disignation" />
-            <Input value="{YY1_TESTINGDATA_CDS>Designation}" />
+            <Input
+                id="Iddesignationedit"
+                value="{YY1_TESTINGDATA_CDS>Designation}"
+            />
             <Label text="Salary" />
-            <Input value="{YY1_TESTINGDATA_CDS>Salary}" />
+            <Input
+                id="Idsalaryedit"
+                value="{YY1_TESTINGDATA_CDS>Salary}"
+            />
             <Label text="Date of Joing" />
-            <Input value="{YY1_TESTINGDATA_CDS>DOJ}" />
+            <DatePicker
+                id="Iddojedit"
+                value="{
+                        'path':'YY1_TESTINGDATA_CDS>DOJ',
+                        'type':'sap.ui.model.type.Date',
+                        'formatOptions': {
+                            'pattern': 'dd/MM/yyyy'
+                        }
+                    }"
+                change="handleChange"
+                class="sapUiSmallMarginBottom"
+            />
         </f:content>
     </f:SimpleForm>
 </core:FragmentDefinition>
